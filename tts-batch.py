@@ -2,10 +2,8 @@ import os
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="/Users/nelsongou/Desktop/tts-key.json"
 from google.cloud import texttospeech
 
-prm_text = "food" # text which the output mp3 will say
+prm_text = "water" # text which the output mp3 will say
 prm_speed = 1.0 # speed: 0.25 - 4.0, default = 1.0
-prm_pitch = 0.0 # pitch: -20.0 - 20.0, default = 0.0
-
 
 def text2speech(prm_text, prm_voice, prm_speed, prm_pitch):
     # Instantiates a client
@@ -35,15 +33,18 @@ def text2speech(prm_text, prm_voice, prm_speed, prm_pitch):
     )
 
     # The response's audio_content is binary.
-    outfile = '/Users/nelsongou/Desktop/Words/' + prm_text + '/' + prm_voice + '.mp3'
+    outfile = '/Users/nelsongou/Desktop/Words/' + prm_text + '/' + prm_voice + '_' + str(prm_pitch) + '.mp3'
     with open(outfile, 'wb') as out:
         out.write(response.audio_content) # Write the response to the output file
-    print('Audio file generated as ' + prm_voice + '.mp3')
+    print('Audio file generated as ' + prm_voice + '_' + str(prm_pitch) + '.mp3')
 
     return
 
 
-voices = ['fr-FR-Standard-A',
+voices = ['es-ES-Standard-A',
+ 'es-ES-Standard-B',
+ 'es-ES-Wavenet-B',
+ 'fr-FR-Standard-A',
  'fr-FR-Standard-B',
  'fr-FR-Standard-C',
  'fr-FR-Standard-D',
@@ -53,55 +54,19 @@ voices = ['fr-FR-Standard-A',
  'fr-FR-Wavenet-C',
  'fr-FR-Wavenet-D',
  'fr-FR-Wavenet-E',
- 'ja-JP-Standard-A',
- 'ja-JP-Standard-B',
- 'ja-JP-Standard-C',
- 'ja-JP-Standard-D',
- 'ja-JP-Wavenet-A',
- 'ja-JP-Wavenet-B',
- 'ja-JP-Wavenet-C',
- 'ja-JP-Wavenet-D',
- 'ko-KR-Standard-A',
- 'ko-KR-Standard-B',
- 'ko-KR-Standard-C',
- 'ko-KR-Standard-D',
- 'ko-KR-Wavenet-A',
- 'ko-KR-Wavenet-B',
- 'ko-KR-Wavenet-C',
- 'ko-KR-Wavenet-D',
- 'ru-RU-Standard-A',
- 'ru-RU-Standard-B',
- 'ru-RU-Standard-C',
- 'ru-RU-Standard-D',
- 'ru-RU-Standard-E',
- 'ru-RU-Wavenet-A',
- 'ru-RU-Wavenet-B',
- 'ru-RU-Wavenet-C',
- 'ru-RU-Wavenet-D',
- 'ru-RU-Wavenet-E',
- 'tr-TR-Standard-A',
- 'tr-TR-Standard-B',
- 'tr-TR-Standard-C',
- 'tr-TR-Standard-D',
- 'tr-TR-Standard-E',
- 'tr-TR-Wavenet-A',
- 'tr-TR-Wavenet-B',
- 'tr-TR-Wavenet-C',
- 'tr-TR-Wavenet-D',
- 'tr-TR-Wavenet-E']
+ 'pt-PT-Standard-A',
+ 'pt-PT-Standard-B',
+ 'pt-PT-Standard-C',
+ 'pt-PT-Standard-D',
+ 'pt-PT-Wavenet-A',
+ 'pt-PT-Wavenet-B',
+ 'pt-PT-Wavenet-C',
+ 'pt-PT-Wavenet-D',]
 
-voicesRU = ['ru-RU-Standard-A',
- 'ru-RU-Standard-B',
- 'ru-RU-Standard-C',
- 'ru-RU-Standard-D',
- 'ru-RU-Standard-E',
- 'ru-RU-Wavenet-A',
- 'ru-RU-Wavenet-B',
- 'ru-RU-Wavenet-C',
- 'ru-RU-Wavenet-D',
- 'ru-RU-Wavenet-E']
+pitches = [-3.0, 0.0, 3.0]
 
-for prm_voice in voicesRU:
-    text2speech(prm_text, prm_voice, prm_speed, prm_pitch)
+for prm_voice in voices:
+    for prm_pitch in pitches:
+        text2speech(prm_text, prm_voice, prm_speed, prm_pitch)
 
-print(len(voicesRU), "audio files have been generated")
+print((len(voices)*len(pitches)), "audio files have been generated")
