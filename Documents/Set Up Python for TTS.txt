@@ -1,0 +1,40 @@
+How to Setup the Google Text-to-Speech API
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Install Homebrew:
+
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+
+
+Install Python/Pip:
+
+
+brew install python
+
+pip3 install --upgrade pip --user
+
+pip3 install --upgrade google-cloud-texttospeech
+
+
+
+
+Modifying the Python file:
+
+
+Change JSON key path name
+	- right-click on JSON file, click Option, click Copy as Pathname
+
+Change mp3 file save directory
+
+
+
+
+Running the Python file:
+
+cd to the directory where the Python file is located
+
+python3 tts-batch.py
+
