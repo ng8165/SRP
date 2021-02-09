@@ -1,8 +1,17 @@
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# File:             tts-batch.py
+# Description:      Generates mp3 files using various voices from the Google Text-to-Speech API
+# Author:           Nelson Gou, Eric Zhang
+# Creation Date:    1/18/2021
+#
+# Copyright © 2020-2021 Nelson Gou, Eric Zhang. All rights reserved.
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 import os
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="/Users/nelsongou/Desktop/tts-key.json"
 from google.cloud import texttospeech
 
-prm_text = "water" # text which the output mp3 will say
+prm_text = "food" # text which the output mp3 will say
 prm_speed = 1.0 # speed: 0.25 - 4.0, default = 1.0
 
 def text2speech(prm_text, prm_voice, prm_speed, prm_pitch):
