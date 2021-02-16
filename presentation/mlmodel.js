@@ -13,6 +13,10 @@ async function createModel() {
   return recognizer;
 }
 
+document.getElementById("start").onclick = function() {
+  init()
+};
+
 async function init() {
   const recognizer = await createModel();
   const classLabels = recognizer.wordLabels();
@@ -55,11 +59,6 @@ async function init() {
     invokeCallbackOnNoiseAndUnknown: true,
     overlapFactor: 0.50
   });
-
-  // things to do for start/stop functions
-  document.getElementById("start").onclick = function() {
-    init()
-  };
 
   document.getElementById("stop").onclick = function() {
     recognizer.stopListening()
