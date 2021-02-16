@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta name="robots" content="noindex">
+    <title>Using Machine Learning to Recognize Accented Speech</title>
+    <link type="text/css" rel="stylesheet" href="style.css" />
+    <link rel="icon" type="ico" href="favicon.png">
+  </head>
+
+  <body>
+    <nav>
+      <center>
+        <ul>
+          <li>A99: Nelson Gou and Eric Zhang</li>
+        </ul>
+      </center>
+    </nav>
+    <h1>Using Machine Learning to Recognize Accented Speech</h1>
+
+    <!--
+    <div id="tts-code">
+      <h3>TTS Python Code</h3>
+      <script src="https://gist.github.com/ng8165/6ea4d581d4a3acb1f6bf104e0032541c.js"></script>
+    </div>
+    -->
+
+    <div id="ml-model">
+      <u style="font-size:20px">ML Model</u>
+
+      <p><button type="button" id="start" style="visibility:visible">Start</button></p>
+      <p><button type="button" id="stop" style="display:none">Stop</button></p>
+
+      <div id="label-container"></div>
+
+      <strong>
+        <p id="result" style="display: none"></p>
+      </strong>
+
+      <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/speech-commands@0.4.0/dist/speech-commands.min.js"></script>
+      <script type="text/javascript" src="mlmodel.js"></script>
+    </div>
+
+  </body>
+
+</html>
